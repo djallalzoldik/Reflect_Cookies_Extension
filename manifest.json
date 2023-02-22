@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "Reflect_Cookie",
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "addon@example.com"
+               }
+        },
+    "description": "Enable reading mode on Chrome's official Extensions and Chrome Web Store documentation.",
+    "version": "1.0",
+    "icons": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "permissions": ["scripting", "activeTab","cookies"],
+    "host_permissions": [
+      "http://www.blogger.com/",
+      "*://*/*"
+    ],
+    "action": {
+        "default_icon": {
+          "16": "images/icon-16.png",
+          "32": "images/icon-32.png",
+          "48": "images/icon-48.png",
+          "128": "images/icon-128.png"
+        },
+        "default_popup": "table/index.html",
+        "default_title": "REFLECTED_COOKIES"
+      },
+    "content_scripts": [
+        {
+          "js": [
+            "scripts/content.js"
+          ],
+          "matches": [
+            "<all_urls>"         
+          ]
+        }
+      ],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
